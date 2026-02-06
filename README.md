@@ -26,3 +26,5 @@ The focus is on:
 - **04-transformation-playbooks** — how organizations adopt metrics safely
 - **05-sample-artifacts** — concrete examples and prompts
 - **06-leadership-conversations** — how to explain, defend, and evolve these ideas with stakeholders
+## Status
+Initial scaffold complete; content in progress.
