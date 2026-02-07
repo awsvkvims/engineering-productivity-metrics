@@ -15,7 +15,7 @@ High utilization **feels efficient** locally, but at the system level it **incre
 *Reason:* Queues are the hidden tax of “everyone busy”; flow improves when we preserve slack at key bottlenecks.
 
 ```mermaid
-flowchart LR
+flowchart TB
 
 %% Make the two subgraphs sit side-by-side
 %% Each subgraph uses TB so the steps inside flow top-to-bottom
