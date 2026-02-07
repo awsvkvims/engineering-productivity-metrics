@@ -10,49 +10,6 @@ High utilization **feels efficient** locally, but at the system level it **incre
 
 ## Why This Principle Exists
 
-### Visual: Flow vs Utilization
-
-*Reason:* Queues are the hidden tax of “everyone busy”; flow improves when we preserve slack at key bottlenecks.
-
-```mermaid
-flowchart TB
-
-classDef box fill:#efe6ff,stroke:#7a5cff,stroke-width:1px,color:#111;
-classDef note fill:#fff,stroke:#999,stroke-dasharray:3 3,color:#111;
-classDef header fill:#fff7cc,stroke:#c9b200,stroke-width:1px,color:#111,font-weight:bold;
-classDef spacer fill:transparent,stroke:transparent,color:transparent;
-
-subgraph ROW[" "]
-direction LR
-
-  subgraph U["Utilization"]
-  direction TB
-  Utitle["Utilization-optimized (anti-pattern)"]:::header
-  Usp[" "]:::spacer
-
-  U0[Idea]:::box --> U1[Team A<br/>~100% busy]:::box
-  U1 --> Uq1[Queue / Waiting]:::note
-  Uq1 --> U2[Team B<br/>~100% busy]:::box
-  U2 --> Uq2[Queue / Waiting]:::note
-  Uq2 --> U3[Team C<br/>~100% busy]:::box
-  U3 --> U4[Value delivered<br/>slow & unpredictable]:::box
-  end
-
-  subgraph F["Flow"]
-  direction TB
-  Ftitle["Flow-optimized (desired state)"]:::header
-  Fsp[" "]:::spacer
-
-  F0[Idea]:::box --> F1[Team A<br/>70–80% utilized]:::box
-  F1 --> F2[Team B<br/>70–80% utilized]:::box
-  F2 --> F3[Team C<br/>70–80% utilized]:::box
-  F3 --> F4[Value delivered<br/>fast & predictable]:::box
-  end
-
-end
-
-```  
-
 Most large organizations unintentionally optimize for utilization:
 - fully allocated teams
 - saturated CI/CD systems
