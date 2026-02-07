@@ -16,21 +16,35 @@ High utilization **feels efficient** locally, but at the system level it **incre
 
 ```mermaid
 flowchart LR
-  subgraph U["Utilization-optimized: anti-pattern"]
-    I1[Idea] --> A1[Team A<br/>~100% busy]
-    A1 --> Q1[[Queue / Waiting]]
-    Q1 --> B1[Team B<br/>~100% busy]
-    B1 --> Q2[[Queue / Waiting]]
-    Q2 --> C1[Team C<br/>~100% busy]
-    C1 --> O1[Value delivered<br/>slow and unpredictable]
-  end
 
-  subgraph F["Flow-optimized: desired state"]
-    I2[Idea] --> A2[Team A<br/>70–80% utilized]
-    A2 --> B2[Team B<br/>70–80% utilized]
-    B2 --> C2[Team C<br/>60–80% utilized]
-    C2 --> O2[Value delivered<br/>fast and predictable]
-  end
+%% Make the two subgraphs sit side-by-side
+%% Each subgraph uses TB so the steps inside flow top-to-bottom
+
+classDef box fill:#efe6ff,stroke:#7a5cff,stroke-width:1px,color:#111;
+classDef note fill:#fff,stroke:#999,stroke-dasharray:3 3,color:#111;
+classDef spacer fill:transparent,stroke:transparent,color:transparent;
+
+subgraph U["Utilization-optimized (anti-pattern)"]
+direction TB
+Usp[" "]:::spacer
+
+U0[Idea]:::box --> U1[Team A<br/>~100% busy]:::box
+U1 --> Uq1[Queue / Waiting]:::note
+Uq1 --> U2[Team B<br/>~100% busy]:::box
+U2 --> Uq2[Queue / Waiting]:::note
+Uq2 --> U3[Team C<br/>~100% busy]:::box
+U3 --> U4[Value delivered<br/>slow & unpredictable]:::box
+end
+
+subgraph F["Flow-optimized (desired state)"]
+direction TB
+Fsp[" "]:::spacer
+
+F0[Idea]:::box --> F1[Team A<br/>70–80% utilized]:::box
+F1 --> F2[Team B<br/>70–80% utilized]:::box
+F2 --> F3[Team C<br/>70–80% utilized]:::box
+F3 --> F4[Value delivered<br/>fast & predictable]:::box
+end
 ```  
 
 Most large organizations unintentionally optimize for utilization:
