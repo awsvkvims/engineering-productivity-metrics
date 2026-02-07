@@ -23,6 +23,15 @@ flowchart TB
 classDef box fill:#efe6ff,stroke:#7a5cff,stroke-width:1px,color:#111;
 classDef note fill:#fff,stroke:#999,stroke-dasharray:3 3,color:#111;
 classDef spacer fill:transparent,stroke:transparent,color:transparent;
+subgraph F["Flow-optimized (desired state)"]
+direction TB
+Fsp[" "]:::spacer
+
+F0[Idea]:::box --> F1[Team A<br/>70–80% utilized]:::box
+F1 --> F2[Team B<br/>70–80% utilized]:::box
+F2 --> F3[Team C<br/>70–80% utilized]:::box
+F3 --> F4[Value delivered<br/>fast & predictable]:::box
+end
 
 subgraph U["Utilization-optimized (anti-pattern)"]
 direction TB
@@ -36,15 +45,7 @@ Uq2 --> U3[Team C<br/>~100% busy]:::box
 U3 --> U4[Value delivered<br/>slow & unpredictable]:::box
 end
 
-subgraph F["Flow-optimized (desired state)"]
-direction TB
-Fsp[" "]:::spacer
 
-F0[Idea]:::box --> F1[Team A<br/>70–80% utilized]:::box
-F1 --> F2[Team B<br/>70–80% utilized]:::box
-F2 --> F3[Team C<br/>70–80% utilized]:::box
-F3 --> F4[Value delivered<br/>fast & predictable]:::box
-end
 ```  
 
 Most large organizations unintentionally optimize for utilization:
