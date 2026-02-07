@@ -16,20 +16,20 @@ High utilization **feels efficient** locally, but at the system level it **incre
 
 ```mermaid
 flowchart LR
-  subgraph U[Utilization-optimized (anti-pattern)]
-    I1[Idea] --> A1[Team A\n(near 100% busy)]
+  subgraph U["Utilization-optimized: anti-pattern"]
+    I1[Idea] --> A1[Team A<br/>~100% busy]
     A1 --> Q1[[Queue / Waiting]]
-    Q1 --> B1[Team B\n(near 100% busy)]
+    Q1 --> B1[Team B<br/>~100% busy]
     B1 --> Q2[[Queue / Waiting]]
-    Q2 --> C1[Team C\n(near 100% busy)]
-    C1 --> O1[Value Delivered\n(slow, unpredictable)]
+    Q2 --> C1[Team C<br/>~100% busy]
+    C1 --> O1[Value delivered<br/>slow and unpredictable]
   end
 
-  subgraph F[Flow-optimized (desired)]
-    I2[Idea] --> A2[Team A\n(70–80% utilized)]
-    A2 --> B2[Team B\n(70–80% utilized)]
-    B2 --> C2[Team C\n(60–80% utilized)]
-    C2 --> O2[Value Delivered\n(fast, predictable)]
+  subgraph F["Flow-optimized: desired state"]
+    I2[Idea] --> A2[Team A<br/>70–80% utilized]
+    A2 --> B2[Team B<br/>70–80% utilized]
+    B2 --> C2[Team C<br/>60–80% utilized]
+    C2 --> O2[Value delivered<br/>fast and predictable]
   end
 ```  
 
